@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="./js/Observer.js"></script>
+    <script src="./js/MyVue.js"></script>
+
+    <div id="app">
+        <h2>{{person.name}}--{{person.age}}</h2>
+        <h3>{{person.love}}</h3>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <h3>{{msg}}</h3>
+        <div v-text='msg'></div>
+        <div v-text='person.love'></div>
+        <div v-html='htmlStr'></div>
+        <input v-model='msg' type='text'></input>
+        <button v-on:click='handleClick'>点击</button>
+        <button @click='handleClick'>@点击</button>
+    </div>
+
+
+    <script>
+
+        let vm = new MyVue({
+            el: '#app',
+            data: {
+                person: {
+                    name: 'jinshuo',
+                    age: 25,
+                    love: 'lmy',
+                },
+                msg: 'jinshuo love limengying!',
+                htmlStr: '<h2>这是html内容</h2>'
+            },
+            methods: {
+                handleClick() {
+                    console.log('调用了事件处理方法', this);
+                }
+            },
+        })
+
+    </script>
+
+
+</body>
+
+</html>
