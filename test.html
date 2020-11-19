@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <body>
+        <button index="0">点击</button>
+        <button index="1">点击</button>
+        <button index="2">点击</button>
 
-<body>
+        <script>
+            // alert(Boolean([]&&0));
+            // console.log(((typeof [...[1, 2, 3]])));
+            // console.log([...[1, 2, 3]]);
 
-
-    <script>
-        // alert(Boolean([]&&0));
-        // console.log(((typeof [...[1, 2, 3]])));
-        // console.log([...[1, 2, 3]]);
-
-
-        /* let reg = /\{\{(.+?)\}\}/g;
+            /* let reg = /\{\{(.+?)\}\}/g;
 
         let str = '{{jin}}--{{shuo}}';
 
@@ -26,13 +26,191 @@
 
         console.log(str); */
 
-        if(1){
+            /* if(1){
             console.log('jinshuo');
+        } */
+
+            /* function a() {
+            return function () {
+                console.log(1);
+            }
+        }
+        debugger
+        let fn = a();
+        fn();
+        a = null;
+        fn(); */
+
+            /* function a() {
+            return 1;
+        }
+        debugger
+        let res = a();
+        console.log(res);
+        console.log(res); */
+
+            /* function a() {
+            var x = 1;
+            return function () {
+                console.log(x);
+            }
+        }
+        debugger
+        let fn = a();
+        fn();
+        a = null;
+        fn(); */
+
+            /* var a = 0;
+        if (true) {
+            a = 1;
+            function a() { };
+            a = 2;
+            console.log(a);  //2
+        }
+        console.log(a);  //1 */
+
+            /* var a = 0;
+        if (true) {
+            a = 1;
+            var a;
+            a = 2;
+            console.log(a);  //2
+        }
+        console.log(a);  //2 */
+
+            /* var a = 0;
+        if (true) {
+            a = 1;
+            let a;
+            a = 2;
+            console.log(a);
+        }
+        console.log(a); */
+            //Uncaught ReferenceError: Cannot access 'a' before initialization
+
+            /* var a = 0;
+        if (true) {
+            a = 1;
+            var a = 0;
+            a = 2;
+            console.log(a);  //2
+        }
+        console.log(a);  //2 */
+
+            /* var f = 1;
+        if (1) {
+            function f() {
+                console.log(1);
+            }
+        }
+        console.log(f); */
+
+            /* function A(){
+            var x=1;
+            console.log(x);
+            return function(){
+                console.log(1);
+            }
+        }
+        var f=A(); */
+
+            /* var arr[...];
+        for (var i = 0; i < 5; i++) {
+            (function (i) {
+                buttonList[i].onclick = function () {
+                    document.body.style.backgroundColor = arr[i];
+                }
+            })(i);
         }
 
-    </script>
+        for (var i = 0; i < 5; i++) {
+            buttonList[i].onclick = (function (i) {
+                return function () {
+                    document.body.style.backgroundColor = arr[i];
+                }
+            })(i);
+        } */
 
+            // debugger
+            /* var buttonList = document.getElementsByTagName('button');
+        var arr = ['red', 'blue', 'black'];
+        for (var i = 0; i < buttonList.length; i++) {
+            (function (i) {
+                buttonList[i].onclick = function (i) {
+                    console.log(i);
+                    document.body.style.backgroundColor = arr[i];
+                }
+            })(i)
+        } */
 
-</body>
+            /* var buttonList = document.getElementsByTagName('button');
+        var arr = ['red', 'blue', 'black'];
+        for (var i = 0; i < buttonList.length; i++) {
+            (function (i) {
+                buttonList[i].onclick = function () {
+                    console.log(i);
+                    document.body.style.backgroundColor = arr[i];
+                }
+            })(i)
+        } */
 
+            /* var buttonList = document.getElementsByTagName('button');
+        var arr = ['red', 'blue', 'black'];
+        for (var i = 0; i < buttonList.length; i++) {
+            buttonList[i].index = i;
+            buttonList[i].onclick = function () {
+                var color = arr[this.index];
+                document.body.style.backgroundColor = color;
+            }
+        } */
+
+            /* var arr = ['red', 'blue', 'black'];
+        document.body.onclick = function (e) {
+            let target = e.target;
+            targetTag = target.tagName;
+            if (targetTag === 'BUTTON') {
+                var index = target.getAttribute('index');
+                document.body.style.backgroundColor = arr[index];
+            }
+        } */
+
+            /* var obj = {
+                a: 1,
+                b: 2,
+            };
+            function toArr(obj) {
+                return [...obj];
+            }
+            toArr(obj); */
+
+            /* var btn = document.getElementsByTagName("button");
+            for (var i = 0; i < btn.length; i++) {
+                var attributes = btn[i].attributes;
+                [...attributes].forEach((attr) => {
+                    console.log(attr);
+                    var {name, val}=attr;
+                    console.log(name);
+                });
+            } */
+
+            /* var str = "{{jinshuo}}--{{666}}";
+            var reg = /\{\{.+?\}\}/g;
+            var res = str.match(reg);
+            console.log(res); */
+
+            var attr = "obj.name";
+            var obj = {
+                name: "jinshuo",
+                age: 26,
+                love: "lmy",
+            };
+            // console.log(attr.split(".").splice(1));
+            var res = attr.split(".").splice(1).reduce((obj, key) => {
+                return obj[key];
+            }, obj);
+            console.log(res);  //jinshuo
+
+        </script>
+    </body>
 </html>
